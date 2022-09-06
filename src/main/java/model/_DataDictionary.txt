@@ -1,0 +1,90 @@
+Table: company
+----------+---------------+------+-----+---------+---------
+ Field    | Type          | Null | Key | Default | Remarks 
+----------+---------------+------+-----+---------+---------
+ cname    | VARCHAR(16)   | NO   | PRI |         |         
+ password | VARCHAR(255)  | YES  |     |         |         
+ name     | VARCHAR(16)   | YES  |     |         |         
+ address  | VARCHAR(32)   | YES  |     |         |         
+ tel      | VARCHAR(16)   | YES  |     |         |         
+ detail   | VARCHAR(2505) | YES  |     |         |         
+ status   | INT(10)       | YES  |     | 0       | 审核状态    
+ number   | INT(10)       | YES  |     |         |         
+----------+---------------+------+-----+---------+---------
+
+Table: news
+-----------+--------------+------+-----+---------+---------
+ Field     | Type         | Null | Key | Default | Remarks 
+-----------+--------------+------+-----+---------+---------
+ id        | INT(10)      | NO   | PRI |         |         
+ AdminName | VARCHAR(215) | NO   | PRI |         |         
+ title     | VARCHAR(255) | YES  |     |         |         
+ content   | VARCHAR(512) | YES  |     |         |         
+ newsTime  | VARCHAR(255) | YES  |     |         |         
+-----------+--------------+------+-----+---------+---------
+
+Table: recruit
+-------------+---------------+------+-----+---------+---------
+ Field       | Type          | Null | Key | Default | Remarks 
+-------------+---------------+------+-----+---------+---------
+ recruitid   | INT(10)       | NO   | PRI |         |         
+ major       | VARCHAR(255)  | YES  |     |         |         
+ cname       | VARCHAR(16)   | YES  |     |         |         
+ position    | VARCHAR(16)   | YES  |     |         |         
+ salary      | INT(10)       | YES  |     |         |         
+ number      | INT(10)       | YES  |     |         | 雇佣人数量   
+ recruitTime | VARCHAR(255)  | YES  |     |         | 招聘发布时间  
+ address     | VARCHAR(16)   | YES  |     |         |         
+ degree      | VARCHAR(8)    | YES  |     |         |         
+ inf         | VARCHAR(2555) | YES  |     |         | 其它雇佣要求  
+-------------+---------------+------+-----+---------+---------
+
+Table: request
+-----------+--------------+------+-----+---------+---------
+ Field     | Type         | Null | Key | Default | Remarks 
+-----------+--------------+------+-----+---------+---------
+ id        | INT(10)      | NO   | PRI |         |         
+ recruitId | INT(10)      | YES  |     |         |         
+ cname     | VARCHAR(16)  | YES  |     |         |         
+ sname     | VARCHAR(16)  | YES  |     |         |         
+ resume    | VARCHAR(255) | YES  |     |         | 简历附件地址  
+ status    | INT(10)      | YES  |     |         | 审核状态    
+-----------+--------------+------+-----+---------+---------
+
+Table: stu
+--------------+--------------+------+-----+---------+---------
+ Field        | Type         | Null | Key | Default | Remarks 
+--------------+--------------+------+-----+---------+---------
+ sname        | VARCHAR(100) | NO   | PRI |         |         
+ name         | VARCHAR(100) | YES  |     |         |         
+ stuID        | INT(10)      | NO   | PRI |         | 学号      
+ password     | VARCHAR(255) | YES  |     |         |         
+ gender       | VARCHAR(4)   | YES  |     |         |         
+ tel          | VARCHAR(16)  | YES  |     |         |         
+ email        | VARCHAR(24)  | YES  |     |         |         
+ degree       | VARCHAR(8)   | YES  |     |         |         
+ university   | VARCHAR(255) | YES  |     |         |         
+ major        | VARCHAR(255) | YES  |     |         | 专业      
+ introduction | VARCHAR(255) | YES  |     |         |         
+ resume       | VARCHAR(255) | YES  |     |         |         
+--------------+--------------+------+-----+---------+---------
+
+Table: useradmin
+---------------+--------------+------+-----+---------+---------
+ Field         | Type         | Null | Key | Default | Remarks 
+---------------+--------------+------+-----+---------+---------
+ adminName     | VARCHAR(255) | NO   | PRI |         |         
+ adminPassword | VARCHAR(255) | YES  |     |         |         
+---------------+--------------+------+-----+---------+---------
+
+Table: whereabouts
+-------------+--------------+------+-----+---------+---------
+ Field       | Type         | Null | Key | Default | Remarks 
+-------------+--------------+------+-----+---------+---------
+ id          | INT(10)      | NO   | PRI |         |         
+ stuId       | INT(10)      | YES  |     |         |         
+ companyName | VARCHAR(255) | YES  |     |         |         
+ Occupation  | VARCHAR(255) | YES  |     |         |         
+ address     | VARCHAR(255) | YES  |     |         |         
+-------------+--------------+------+-----+---------+---------
+

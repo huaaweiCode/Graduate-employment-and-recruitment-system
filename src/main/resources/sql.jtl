@@ -1,0 +1,122 @@
+#sql("findAllWhereabouts")
+SELECT whereabouts.* ,stu.name,stu.tel,stu.major,stu.degree FROM whereabouts,stu where whereabouts.stuId=stu.stuID ORDER BY id
+#end
+
+
+#sql("adminfindrecruit")
+SELECT
+	*
+FROM
+	recruit,
+	company
+WHERE
+	recruit.cname = company.cname
+#end
+
+
+#sql("adminFindAlladmin")
+select * from useradmin
+#end
+
+#sql("adminFindAllcompany")
+select * from company
+#end
+
+#sql("adminFindAllstu")
+select * from stu
+#end
+
+#sql("company_find_examine")
+SELECT
+	request.*,
+stu.`name`
+FROM
+	request,
+	stu
+WHERE
+	request.sname = stu.sname
+
+and request.cname=?
+
+#end
+
+#sql("stu_query_company_info")
+SELECT
+	recruit.*, company.`name`,
+	company.number,
+	company.detail,
+	company.tel
+FROM
+	recruit,
+	company
+WHERE
+	recruitid = ?
+AND recruit.cname = company.cname
+#end
+
+#sql("stu_queryRecruit")
+SELECT
+	*
+FROM
+	(
+		SELECT
+			recruit.*,company.`name`
+		FROM
+			recruit,
+			company
+		WHERE
+			recruit.cname = company.cname
+	) AS t
+
+#end
+
+#sql("stu_find_allrecruit")
+
+SELECT
+	recruit.*,request.*
+FROM
+(SELECT
+	recruit.*, company.`name`
+FROM
+	recruit,
+	company
+WHERE
+	recruit.cname = company.cname)
+	as recruit
+
+LEFT JOIN
+(select
+request.sname ,request.recruitId
+from request
+where request.sname=#para(0)) as request
+ ON recruit.recruitid = request.recruitId
+ORDER BY recruit.recruitid
+#end
+
+#sql("stu_find_allnews")
+SELECT
+	*
+FROM
+	news
+ORDER BY
+	newsTime DESC
+
+#end
+
+#sql("stu_find_new_id")
+
+select * from news where news.id=?
+
+#end
+
+#sql("check_login_stu")
+select * FROM stu WHERE sname= ? AND `password`=?
+#end
+
+#sql("check_login_admin")
+select * FROM useradmin WHERE adminName= ? AND `adminPassword`= ?
+#end
+
+#sql("check_login_company")
+select * FROM company WHERE cname= ? AND `password`= ?
+#end
